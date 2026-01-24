@@ -6,6 +6,7 @@ import { controlAsistencia } from './ejercicio5.js'
 import { calcularImpuestos } from './ejercicio6.js'
 import { validarContrasena } from './ejercicio7.js'
 import { estadisticasPuntaje } from './ejercicio8.js'
+import { calcularNomina } from './ejercicio9.js'
 
 function ejecutarMenu() {
 
@@ -21,6 +22,7 @@ function ejecutarMenu() {
         menu += "6. Impuestos de Ventas\n";
         menu += "7. Validador de Contraseñas\n";
         menu += "8. Estadísticas de Puntaje\n";
+        menu += "9. Nómina con Recargos\n";
         menu += "0. Salir\n";
 
         const opcion = prompt(menu);
@@ -102,6 +104,13 @@ function ejecutarMenu() {
                 }
                 const promedioAjustado = estadisticasPuntaje(puntajes)
                 alert("PROMEDIO AJUSTADO: " + promedioAjustado)
+                break
+
+            case '9':
+                const horas = parseInt(prompt("Ingrese las horas trabajadas"))
+                const valorHora = parseFloat(prompt("Ingrese el valor de la hora"))
+                const salario = calcularNomina(horas, valorHora)
+                alert("SALARIO TOTAL: " + salario)
                 break
 
             case '0':
