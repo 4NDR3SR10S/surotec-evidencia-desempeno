@@ -11,6 +11,7 @@ import { convertirDivisas } from './ejercicio10.js'
 import { gestionarAula } from './ejercicio11.js'
 import { analizarPalabras } from './ejercicio12.js'
 import { verificarSensores } from './ejercicio13.js'
+import { calcularDescuentoLealtad } from './ejercicio14.js'
 
 function ejecutarMenu() {
 
@@ -31,6 +32,7 @@ function ejecutarMenu() {
         menu += "11. Capacidad de Aula\n";
         menu += "12. Análisis de Palabras Prohibidas\n";
         menu += "13. Alerta de Sensores\n";
+        menu += "14. Descuento por Lealtad\n";
         menu += "0. Salir\n";
 
         const opcion = prompt(menu);
@@ -158,6 +160,18 @@ function ejecutarMenu() {
                 }
                 const estadoSensor = verificarSensores(temperaturas)
                 alert("ESTADO DEL SENSOR: " + estadoSensor)
+                break
+
+            case '14':
+                const entradaCompras = prompt("Ingrese las ultimas 5 compras separadas por coma")
+                const arrayStrCompras = entradaCompras.split(",")
+                const compras = []
+                for (let i = 0; i < arrayStrCompras.length; i++) {
+                    compras.push(Number(arrayStrCompras[i]))
+                }
+                const antiguedad = parseInt(prompt("Ingrese los años de antiguedad"))
+                const resultado14 = calcularDescuentoLealtad(compras, antiguedad)
+                alert("RESULTADO: " + resultado14)
                 break
 
             case '0':
