@@ -17,6 +17,7 @@ import { calcularCostoServicio } from './ejercicio16.js'
 import { monitorearTransacciones } from './ejercicio17.js'
 import { verificarPrestamo } from './ejercicio18.js'
 import { calcularRuta } from './ejercicio19.js'
+import { generarCSV } from './ejercicio20.js'
 
 function ejecutarMenu() {
 
@@ -43,6 +44,7 @@ function ejecutarMenu() {
         menu += "17. Monitoreo de Transacciones\n";
         menu += "18. Validación de Préstamo Biblioteca\n";
         menu += "19. Planificador de Ruta de Entrega\n";
+        menu += "20. Generador de Reporte CSV\n";
         menu += "0. Salir\n";
 
         const opcion = prompt(menu);
@@ -232,6 +234,16 @@ function ejecutarMenu() {
                 ]
                 const ruta = calcularRuta(destinos)
                 alert("RUTA POSIBLE (Combustible 200km): \n" + JSON.stringify(ruta, null, 2))
+                break
+
+            case '20':
+                const usuarios = [
+                    { id: 1, nombre: "Juan Perez", email: "juan@example.com" },
+                    { id: 2, nombre: "Maria Lopez", email: "maria@example.com" },
+                    { id: 3, nombre: "Carlos Ruiz", email: "carlos@example.com" }
+                ]
+                const csvGenerado = generarCSV(usuarios)
+                alert("CSV GENERADO: \n\n" + csvGenerado)
                 break
 
             case '0':
