@@ -16,6 +16,7 @@ import { filtrarTareas } from './ejercicio15.js'
 import { calcularCostoServicio } from './ejercicio16.js'
 import { monitorearTransacciones } from './ejercicio17.js'
 import { verificarPrestamo } from './ejercicio18.js'
+import { calcularRuta } from './ejercicio19.js'
 
 function ejecutarMenu() {
 
@@ -41,6 +42,7 @@ function ejecutarMenu() {
         menu += "16. Liquidación Servicio de Agua\n";
         menu += "17. Monitoreo de Transacciones\n";
         menu += "18. Validación de Préstamo Biblioteca\n";
+        menu += "19. Planificador de Ruta de Entrega\n";
         menu += "0. Salir\n";
 
         const opcion = prompt(menu);
@@ -219,6 +221,17 @@ function ejecutarMenu() {
                 ]
                 const estadoPrestamo = verificarPrestamo(prestamos)
                 alert("ESTADO DEL PRÉSTAMO: " + estadoPrestamo)
+                break
+            
+            case '19':
+                const destinos = [
+                    { nombre: "Punto A", distancia: 50 },
+                    { nombre: "Punto B", distancia: 80 },
+                    { nombre: "Punto C", distancia: 100 },
+                    { nombre: "Punto D", distancia: 30 }
+                ]
+                const ruta = calcularRuta(destinos)
+                alert("RUTA POSIBLE (Combustible 200km): \n" + JSON.stringify(ruta, null, 2))
                 break
 
             case '0':
