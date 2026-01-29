@@ -15,6 +15,7 @@ import { calcularDescuentoLealtad } from './ejercicio14.js'
 import { filtrarTareas } from './ejercicio15.js'
 import { calcularCostoServicio } from './ejercicio16.js'
 import { monitorearTransacciones } from './ejercicio17.js'
+import { verificarPrestamo } from './ejercicio18.js'
 
 function ejecutarMenu() {
 
@@ -39,6 +40,7 @@ function ejecutarMenu() {
         menu += "15. Filtro de Tareas Urgentes\n";
         menu += "16. Liquidación Servicio de Agua\n";
         menu += "17. Monitoreo de Transacciones\n";
+        menu += "18. Validación de Préstamo Biblioteca\n";
         menu += "0. Salir\n";
 
         const opcion = prompt(menu);
@@ -207,6 +209,16 @@ function ejecutarMenu() {
                 }
                 const sospechosas = monitorearTransacciones(transacciones)
                 alert("TRANSACCIONES SOSPECHOSAS: \n" + JSON.stringify(sospechosas, null, 2))
+                break
+            
+            case '18':
+                const prestamos = [
+                    { libro: "Libro A", diasRetraso: 3, multa: 2000 },
+                    { libro: "Libro B", diasRetraso: 12, multa: 5000 },
+                    { libro: "Libro C", diasRetraso: 0, multa: 0 }
+                ]
+                const estadoPrestamo = verificarPrestamo(prestamos)
+                alert("ESTADO DEL PRÉSTAMO: " + estadoPrestamo)
                 break
 
             case '0':
