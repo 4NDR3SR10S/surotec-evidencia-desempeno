@@ -7,6 +7,7 @@ import { calcularImpuestos } from './ejercicio6.js'
 import { validarContrasena } from './ejercicio7.js'
 import { estadisticasPuntaje } from './ejercicio8.js'
 import { calcularNomina } from './ejercicio9.js'
+import { convertirDivisas } from './ejercicio10.js'
 
 function ejecutarMenu() {
 
@@ -23,6 +24,7 @@ function ejecutarMenu() {
         menu += "7. Validador de Contraseñas\n";
         menu += "8. Estadísticas de Puntaje\n";
         menu += "9. Nómina con Recargos\n";
+        menu += "10. Conversor de Divisas con Registro\n";
         menu += "0. Salir\n";
 
         const opcion = prompt(menu);
@@ -111,6 +113,14 @@ function ejecutarMenu() {
                 const valorHora = parseFloat(prompt("Ingrese el valor de la hora"))
                 const salario = calcularNomina(horas, valorHora)
                 alert("SALARIO TOTAL: " + salario)
+                break
+
+            case '10':
+                const montoDivisa = parseFloat(prompt("Ingrese el monto a convertir"))
+                const origen = prompt("Ingrese moneda origen (COP, USD, EUR)").toUpperCase()
+                const destino = prompt("Ingrese moneda destino (COP, USD, EUR)").toUpperCase()
+                const resultado10 = convertirDivisas(montoDivisa, origen, destino)
+                alert("RESULTADO: " + resultado10.valor + "\nCONVERSIONES TOTALES: " + resultado10.totalConversiones)
                 break
 
             case '0':
